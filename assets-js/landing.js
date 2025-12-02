@@ -474,3 +474,279 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// --- SISTEMA DE TRADUCCIÓN (I18N) ---
+
+
+const translations = {
+    es: {
+        nav_inicio: "Inicio",
+        nav_beneficios: "Beneficios",
+        nav_testimonios: "Testimonios",
+        nav_planes: "Planes",
+        nav_contacto: "Contacto",
+        btn_login: "Iniciar Sesión",
+        btn_register: "Registrarse",
+        
+        hero_title: "Transforma tu Bodega con Tecnología",
+        hero_desc: "Sistema de gestión inteligente para bodegas y retail en Perú",
+        hero_cta: "Comenzar Gratis",
+        
+        about_title: "Sobre Nosotros",
+        about_desc: "En WARISMART, nos dedicamos a transformar la gestión de bodegas y pequeños comercios en Perú, ofreciendo soluciones tecnológicas accesibles y fáciles de usar.",
+        mission_title: "Nuestra Misión",
+        mission_desc: "Empoderar a los pequeños comercios con herramientas tecnológicas que les permitan competir en igualdad de condiciones.",
+        tech_title: "Nuestra Tecnología",
+        tech_desc: "Desarrollamos software intuitivo y potente, diseñado específicamente para las necesidades de bodegas y pequeños comercios.",
+        commitment_title: "Nuestro Compromiso",
+        commitment_desc: "Ofrecemos soporte continuo y capacitación para asegurar que nuestros clientes saquen el máximo provecho de nuestras herramientas.",
+        community_title: "Nuestra Comunidad",
+        community_desc: "Trabajamos de la mano con nuestros clientes para construir una comunidad de emprendedores exitosos.",
+
+        benefits_title: "Beneficios de WARISMART",
+        ben_stock_title: "Control de Inventario",
+        ben_stock_desc: "Gestiona tu stock en tiempo real con alertas automáticas",
+        ben_sales_title: "Ventas Rápidas",
+        ben_sales_desc: "Punto de venta optimizado con emisión de boletas electrónicas",
+        ben_reports_title: "Reportes Visuales",
+        ben_reports_desc: "Análisis detallados para tomar mejores decisiones",
+        ben_cloud_title: "En la Nube",
+        ben_cloud_desc: "Accede desde cualquier dispositivo, en cualquier momento",
+
+        testimonials_title: "Lo que dicen nuestros clientes",
+        test_1_text: "\"WARISMART transformó mi bodega. Ahora tengo control total de mi inventario y mis ventas han aumentado.\"",
+        test_1_loc: "Bodega El Sol, Lima",
+        test_2_text: "\"La facilidad de uso es increíble. En una semana ya estábamos operando sin problemas.\"",
+        test_2_loc: "Minimarket San Pedro, Arequipa",
+        test_3_text: "\"Los reportes me ayudan a tomar mejores decisiones. Sé exactamente qué productos comprar.\"",
+        test_3_loc: "Bodega La Esquina, Cusco",
+        test_4_text: "\"Antes llevaba todo en cuadernos. Ahora, con solo un clic, veo mis ganancias diarias. Es como tener un contador en mi bolsillo.\"",
+        test_4_loc: "Mini Market Andina, Ancash",
+        test_5_text: "\"Emitir boletas electrónicas era un dolor de cabeza. Con WARISMART lo hago en segundos y sin errores. Mis clientes están más contentos.\"",
+        test_5_loc: "Tienda El Ahorro, Chiclayo",
+        test_6_text: "\"Puedo ver en tiempo real qué productos se venden más. Así ajusto mis compras y ya no me quedo sin stock en los días clave.\"",
+        test_6_loc: "Bodega La Victoria, Piura",
+
+        plans_title: "Planes para tu negocio",
+        plan_basic: "Básico",
+        plan_pro: "Profesional",
+        plan_ent: "Empresa",
+        plan_rec: "Recomendado",
+        plan_mo: "/mes",
+        plan_btn: "Comenzar",
+        feat_inv_basic: "Inventario básico",
+        feat_pos: "Punto de venta",
+        feat_rep_basic: "Reportes básicos",
+        feat_usr_1: "1 usuario",
+        feat_all_basic: "Todo lo del plan Básico",
+        feat_prov: "Gestión de proveedores",
+        feat_rep_adv: "Reportes avanzados",
+        feat_usr_5: "5 usuarios",
+        feat_bill: "Boletas electrónicas",
+        feat_all_pro: "Todo lo del plan Profesional",
+        feat_usr_unlim: "Usuarios ilimitados",
+        feat_api: "API personalizada",
+        feat_support: "Soporte prioritario",
+        feat_multi: "Múltiples sucursales",
+
+        contact_title: "Contáctanos",
+        contact_desc: "¿Tienes preguntas? Estamos aquí para ayudarte a transformar tu negocio.",
+        contact_loc: "Lima, Perú",
+        form_name: "Nombre",
+        form_email: "Email",
+        form_phone: "Teléfono",
+        form_message: "Mensaje",
+        btn_send: "Enviar Mensaje",
+
+        footer_cta_title: "Comienza tu prueba gratuita hoy",
+        footer_cta_desc: "No requiere tarjeta de crédito. Empieza en minutos.",
+        form_business: "Nombre del negocio",
+        btn_register_free: "Registrarse Gratis",
+
+        modal_success_title: "¡Mensaje Enviado!",
+        modal_success_desc: "Hemos recibido tu mensaje correctamente. Nos pondremos en contacto contigo pronto.",
+        modal_error_title: "Campos incompletos",
+        modal_error_desc: "Por favor, completa todos los campos obligatorios para enviar tu mensaje.",
+        modal_btn_ok: "Aceptar",
+        modal_reg_success_title: "¡Registro Exitoso!",
+        modal_reg_success_desc: "Tu prueba gratuita ha sido activada. Revisa tu correo para confirmar tu cuenta.",
+        modal_btn_cont: "Continuar",
+        modal_reg_error_desc: "Por favor, completa todos los campos para registrarte.",
+
+        footer_brand_desc: "Transformación digital para bodegas y retail en Perú",
+        footer_prod: "Producto",
+        footer_company: "Empresa",
+        footer_legal: "Legal",
+        footer_blog: "Blog",
+        footer_privacy: "Privacidad",
+        footer_terms: "Términos",
+        footer_copy: "© 2025 FLUXA. Todos los derechos reservados.",
+
+        assistant_title: "Asistente Virtual",
+        assistant_welcome: "Hola, soy tu asistente virtual de WARISMART. ¿En qué puedo ayudarte?",
+        faq_register: "¿Cómo me registro?",
+        faq_what: "¿Qué es WARISMART?",
+        faq_who: "¿Para quién es WARISMART?",
+        faq_prod: "¿Cómo registro un producto nuevo?",
+        faq_stock: "¿Cómo me avisa si se acaba algo?",
+        faq_sell: "¿Cómo registro una venta?",
+        faq_receipt: "¿Emite boletas o facturas?",
+        faq_earn: "¿Dónde veo mis ganancias?",
+        faq_sec: "¿Mis datos están seguros?",
+        faq_help: "¿Necesito ayuda?"
+    },
+    en: {
+        nav_inicio: "Home",
+        nav_beneficios: "Benefits",
+        nav_testimonios: "Testimonials",
+        nav_planes: "Plans",
+        nav_contacto: "Contact",
+        btn_login: "Log In",
+        btn_register: "Sign Up",
+        
+        hero_title: "Transform Your Store with Technology",
+        hero_desc: "Smart management system for grocery stores and retail in Peru",
+        hero_cta: "Start for Free",
+        
+        about_title: "About Us",
+        about_desc: "At WARISMART, we dedicate ourselves to transforming the management of grocery stores and small businesses in Peru, offering accessible and easy-to-use tech solutions.",
+        mission_title: "Our Mission",
+        mission_desc: "Empower small businesses with technological tools that allow them to compete on equal terms.",
+        tech_title: "Our Technology",
+        tech_desc: "We develop intuitive and powerful software, designed specifically for the needs of grocery stores and small businesses.",
+        commitment_title: "Our Commitment",
+        commitment_desc: "We offer continuous support and training to ensure our clients get the most out of our tools.",
+        community_title: "Our Community",
+        community_desc: "We work hand in hand with our clients to build a community of successful entrepreneurs.",
+
+        benefits_title: "WARISMART Benefits",
+        ben_stock_title: "Inventory Control",
+        ben_stock_desc: "Manage your stock in real-time with automatic alerts",
+        ben_sales_title: "Fast Sales",
+        ben_sales_desc: "Optimized point of sale with electronic receipt issuance",
+        ben_reports_title: "Visual Reports",
+        ben_reports_desc: "Detailed analytics to make better decisions",
+        ben_cloud_title: "In the Cloud",
+        ben_cloud_desc: "Access from any device, at any time",
+
+        testimonials_title: "What our clients say",
+        test_1_text: "\"WARISMART transformed my store. Now I have total control of my inventory and my sales have increased.\"",
+        test_1_loc: "Bodega El Sol, Lima",
+        test_2_text: "\"The ease of use is incredible. In one week we were already operating without problems.\"",
+        test_2_loc: "Minimarket San Pedro, Arequipa",
+        test_3_text: "\"The reports help me make better decisions. I know exactly what products to buy.\"",
+        test_3_loc: "Bodega La Esquina, Cusco",
+        test_4_text: "\"I used to keep everything in notebooks. Now, with just one click, I see my daily earnings. It's like having an accountant in my pocket.\"",
+        test_4_loc: "Mini Market Andina, Ancash",
+        test_5_text: "\"Issuing electronic receipts was a headache. With WARISMART I do it in seconds and without errors. My clients are happier.\"",
+        test_5_loc: "Tienda El Ahorro, Chiclayo",
+        test_6_text: "\"I can see in real-time which products sell the most. So I adjust my purchases and I no longer run out of stock on key days.\"",
+        test_6_loc: "Bodega La Victoria, Piura",
+
+        plans_title: "Plans for your business",
+        plan_basic: "Basic",
+        plan_pro: "Professional",
+        plan_ent: "Enterprise",
+        plan_rec: "Recommended",
+        plan_mo: "/mo",
+        plan_btn: "Get Started",
+        feat_inv_basic: "Basic Inventory",
+        feat_pos: "Point of Sale (POS)",
+        feat_rep_basic: "Basic Reports",
+        feat_usr_1: "1 user",
+        feat_all_basic: "Everything in Basic plan",
+        feat_prov: "Supplier Management",
+        feat_rep_adv: "Advanced Reports",
+        feat_usr_5: "5 users",
+        feat_bill: "Electronic Receipts (Billing)",
+        feat_all_pro: "Everything in Professional plan",
+        feat_usr_unlim: "Unlimited Users",
+        feat_api: "Custom API",
+        feat_support: "Priority Support",
+        feat_multi: "Multiple Branches",
+
+        contact_title: "Contact Us",
+        contact_desc: "Have questions? We are here to help you transform your business.",
+        contact_loc: "Lima, Peru",
+        form_name: "Name",
+        form_email: "Email",
+        form_phone: "Phone",
+        form_message: "Message",
+        btn_send: "Send Message",
+
+        footer_cta_title: "Start your free trial today",
+        footer_cta_desc: "No credit card required. Start in minutes.",
+        form_business: "Business Name",
+        btn_register_free: "Sign Up Free",
+
+        modal_success_title: "Message Sent!",
+        modal_success_desc: "We have received your message correctly. We will contact you soon.",
+        modal_error_title: "Incomplete fields",
+        modal_error_desc: "Please complete all required fields to send your message.",
+        modal_btn_ok: "Accept",
+        modal_reg_success_title: "Registration Successful!",
+        modal_reg_success_desc: "Your free trial has been activated. Check your email to confirm your account.",
+        modal_btn_cont: "Continue",
+        modal_reg_error_desc: "Please complete all fields to register.",
+
+        footer_brand_desc: "Digital transformation for grocery stores and retail in Peru",
+        footer_prod: "Product",
+        footer_company: "Company",
+        footer_legal: "Legal",
+        footer_blog: "Blog",
+        footer_privacy: "Privacy",
+        footer_terms: "Terms",
+        footer_copy: "© 2025 FLUXA. All rights reserved.",
+
+        assistant_title: "Virtual Assistant",
+        assistant_welcome: "Hello, I am your WARISMART virtual assistant. How can I help you?",
+        faq_register: "How do I register?",
+        faq_what: "What is WARISMART?",
+        faq_who: "Who is it for?",
+        faq_prod: "How to add a product?",
+        faq_stock: "Low stock alerts?",
+        faq_sell: "How to make a sale?",
+        faq_receipt: "Does it issue receipts?",
+        faq_earn: "See my earnings?",
+        faq_sec: "Are my data safe?",
+        faq_help: "I need help"
+    }
+};
+
+function changeLanguage(lang) {
+    // 1. Cambiar textos normales
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+
+    // 2. Cambiar placeholders (inputs)
+    const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+    placeholders.forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+            element.placeholder = translations[lang][key];
+        }
+    });
+
+    // 3. Actualizar estilo de botones
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    const activeBtnText = lang === 'es' ? 'ES' : 'EN';
+    const buttons = Array.from(document.querySelectorAll('.lang-btn'));
+    const activeButton = buttons.find(btn => btn.textContent.trim() === activeBtnText);
+    if(activeButton) activeButton.classList.add('active');
+
+    // 4. Guardar preferencia
+    localStorage.setItem('warismart_lang', lang);
+}
+
+// Cargar idioma guardado al iniciar
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('warismart_lang') || 'es';
+    changeLanguage(savedLang);
+});

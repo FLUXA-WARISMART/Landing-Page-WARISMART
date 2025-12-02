@@ -1360,3 +1360,96 @@ section {
 .contacto-form textarea:required {
     border-left: 3px solid #A3D55B;
 }
+
+
+/* Selector de Idioma */
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 15px; /* Espacio antes de los botones de login */
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    font-family: var(--font-main);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    color: #999;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.lang-btn:hover {
+    color: var(--azul);
+}
+
+.lang-btn.active {
+    color: var(--azul);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.lang-divider {
+    color: #ddd;
+    font-size: 14px;
+}
+
+/* Ajuste Responsive */
+@media (max-width: 992px) {
+    .lang-switch {
+        margin: 10px 0; /* Ajuste para menú móvil si es necesario */
+    }
+}
+
+/* Área de texto lateral */
+.video-text {
+    flex: 2;
+    padding: 40px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    /* --- NUEVO: Centrado horizontal total --- */
+    align-items: center;     /* Centra los elementos flex (como el botón) horizontalmente */
+    text-align: center;      /* Centra el texto mismo */
+}
+
+.video-text h3 {
+    color: var(--verde); 
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-family: var(--font-title);
+}
+
+.video-text p {
+    color: #e0e0e0;
+    font-size: 16px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    max-width: 400px; /* Opcional: evita que el texto sea muy ancho al estar centrado */
+}
+
+.video-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    /* --- NUEVO: Para que la lista también se vea centrada --- */
+    display: inline-block; 
+    text-align: left; 
+}
+
+.video-features li {
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 15px;
+}
+
+/* Ajuste responsive para el botón */
+.video-text .btn-primary {
+    /* align-self: flex-start;  <-- SE ELIMINÓ ESTA LÍNEA para permitir el centrado */
+    box-shadow: 0 4px 15px rgba(163, 213, 91, 0.4);
+}
