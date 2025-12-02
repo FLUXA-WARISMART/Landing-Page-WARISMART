@@ -1417,6 +1417,12 @@ section {
     font-family: var(--font-main);
 }
 
+.video-wrapper{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
 .video-text {
     flex: 2;
     padding: 40px;
