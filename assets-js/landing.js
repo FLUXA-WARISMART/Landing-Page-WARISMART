@@ -593,7 +593,14 @@ const translations = {
         faq_receipt: "¿Emite boletas o facturas?",
         faq_earn: "¿Dónde veo mis ganancias?",
         faq_sec: "¿Mis datos están seguros?",
-        faq_help: "¿Necesito ayuda?"
+        faq_help: "¿Necesito ayuda?",
+
+        video_title:"Mira WARISMART en acción",
+        video_sub:"Antes y Después de tu Negocio",
+        video_desc:"Olvídate del caos de los cuadernos y las cuentas perdidas. Descubre cómo centralizar toda tu operación en una sola pantalla.",
+        video_feat_1:"✅ Adiós al estrés del inventario",
+        video_feat_2:"✅ Cuentas claras en segundos",
+        video_cta:"Quiero probarlo ahora",
     },
     en: {
         nav_inicio: "Home",
@@ -709,7 +716,14 @@ const translations = {
         faq_receipt: "Does it issue receipts?",
         faq_earn: "See my earnings?",
         faq_sec: "Are my data safe?",
-        faq_help: "I need help"
+        faq_help: "I need help",
+
+        video_title:"See WARISMART in action",
+        video_sub: "Before and After Your Business",
+        video_desc: "Forget the chaos of notebooks and missing accounts. Discover how to centralize your entire operation on a single screen.",
+        video_feat_1: "✅ Goodbye inventory stress",
+        video_feat_2: "✅ Clear accounts in seconds",
+        video_cta: "I want to try it now",
     }
 };
 
